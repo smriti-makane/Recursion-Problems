@@ -1,0 +1,16 @@
+public class DecimalToBinary {
+    public static void main(String[] args) {
+        int decimalNumber = 13; // Example decimal number
+        String binaryRepresentation = decimalToBinary(decimalNumber);
+        System.out.println("Binary representation of " + decimalNumber + " is " + binaryRepresentation);
+    }
+
+    public static String decimalToBinary(int n) {
+        // Base case
+        if (n == 0) {
+            return ""; // Return an empty string for 0
+        }
+        // Recursive case: divide n by 2 and concatenate the result with the remainder
+        return decimalToBinary(n / 2) + (n % 2);
+    }
+}
