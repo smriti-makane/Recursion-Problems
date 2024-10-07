@@ -1,0 +1,55 @@
+public class MatrixMultiplication {
+
+    public static int[][] multiplyMatrices(int[][] A, int[][] B, int rowA, int colA, int rowB, int colB, int[][] C) {
+
+        if (rowA >= A.length) {
+            return C;
+        }
+
+        if (colB >= B[0].length) {
+
+            return multiplyMatrices(A, B, rowA + 1, 0, rowB, 0, C);
+        }
+
+
+        if (colA < B.length) {
+            C[rowA][colB] += A[rowA][colA] * B[colA][colB]; // Update C
+            return multiplyMatrices(A, B, rowA, colA + 1, rowB, colB, C);
+        } else {
+
+            return multiplyMatrices(A, B, rowA, 0, rowB, colB + 1, C);
+        }
+    }
+
+    public static int[][] multiply(int[][] A, int[][] B) {
+        if (A[0].length != B.length) {
+            throw new IllegalArgumentException("Incompatible matrices for multiplication.");
+        }
+
+        int[][] C = new int[A.length][B[0].length];
+        return multiplyMatrices(A, B, 0, 0, 0, 0, C);
+    }
+
+    public static void main(String[] args) {
+        int[][] A = {
+            {1, 2, 3},
+            {4, 5, 6}
+        };
+
+        int[][] B = {
+            {7, 8},
+            {9, 10},
+            {11, 12}
+        };
+
+        int[][] result = multiply(A, B);
+
+        System.out.println("Result of matrix multiplication:");
+        for (int[] row : result) {
+            for (int val : row) {
+                System.out.print(val + " ");
+            }
+            System.out.println();
+        }
+    }
+}
