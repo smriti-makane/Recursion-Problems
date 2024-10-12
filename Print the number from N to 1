@@ -1,0 +1,14 @@
+public class Countdown {
+    public static void main(String[] args) {
+        int N = 5; 
+        printNumbers(N);
+    }
+
+    public static void printNumbers(int n) {
+        if (n < 1) {
+            return; 
+        }
+        System.out.println(n); 
+        printNumbers(n - 1); 
+    }
+}
