@@ -1,0 +1,20 @@
+public class FindMinRecursive {
+
+    public static int findMin(int[] arr, int n) {
+        if (n == 1) {
+            return arr[0];
+        }
+
+        int minOfRest = findMin(arr, n - 1);
+
+        return Math.min(arr[n - 1], minOfRest);
+    }
+
+    public static void main(String[] args) {
+        int[] arr = {5, 8, 3, 1, 7, 9, 2};
+        int n = arr.length;
+
+        int minElement = findMin(arr, n);
+        System.out.println("Minimum element in the array is: " + minElement);
+    }
+}
