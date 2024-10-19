@@ -1,0 +1,16 @@
+public class ReverseNumber {
+
+    public static int reverse(int num, int reversed) {
+        if (num == 0) {
+            return reversed;
+        }
+        reversed = (reversed * 10) + (num % 10);
+        return reverse(num / 10, reversed);
+    }
+
+    public static void main(String[] args) {
+        int num = 12345;
+        int reversedNumber = reverse(num, 0);
+        System.out.println("Reversed number: " + reversedNumber);
+    }
+}
