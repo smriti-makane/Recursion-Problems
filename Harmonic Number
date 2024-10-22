@@ -1,0 +1,15 @@
+public class HarmonicNumber {
+
+    public static double harmonic(int n) {
+        if (n == 1) {
+            return 1.0;
+        }
+        return 1.0 / n + harmonic(n - 1);
+    }
+
+    public static void main(String[] args) {
+        int n = 5;  // Example input
+        double result = harmonic(n);
+        System.out.println("The " + n + "th harmonic number is: " + result);
+    }
+}
