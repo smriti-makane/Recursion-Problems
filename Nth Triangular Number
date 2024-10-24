@@ -1,0 +1,16 @@
+public class TriangularNumber {
+
+    public static int triangular(int n) {
+        if (n == 1) {
+            return 1;  
+        } else {
+            return n + triangular(n - 1); 
+        }
+    }
+
+    public static void main(String[] args) {
+        int n = 5; 
+        int result = triangular(n);
+        System.out.println("The " + n + "th triangular number is: " + result);
+    }
+}
