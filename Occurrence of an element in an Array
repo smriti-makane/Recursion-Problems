@@ -1,0 +1,19 @@
+public class ElementCounter {
+    public static int countOccurrences(int[] arr, int element, int index) {
+        if (index == arr.length) {
+            return 0;
+        }
+        
+        int count = (arr[index] == element) ? 1 : 0;
+
+        return count + countOccurrences(arr, element, index + 1);
+    }
+
+    public static void main(String[] args) {
+        int[] arr = {1, 2, 3, 2, 4, 2, 5};
+        int element = 2;
+        
+        int result = countOccurrences(arr, element, 0);
+        System.out.println("The element " + element + " occurs " + result + " times in the array.");
+    }
+}
