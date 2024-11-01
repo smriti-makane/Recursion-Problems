@@ -1,0 +1,63 @@
+public class KnightTour {
+    static int N = 8; 
+
+    static void printSolution(int[][] solution) {
+        for (int x = 0; x < N; x++) {
+            for (int y = 0; y < N; y++) {
+                System.out.print(solution[x][y] + "\t");
+            }
+            System.out.println();
+        }
+    }
+
+    static boolean isSafe(int x, int y, int[][] solution) {
+        return (x >= 0 && x < N && y >= 0 && y < N && solution[x][y] == -1);
+    }
+
+    static boolean solveKnightTour() {
+        int[][] solution = new int[N][N];
+
+        for (int x = 0; x < N; x++) {
+            for (int y = 0; y < N; y++) {
+                solution[x][y] = -1;
+            }
+        }
+
+        int[] xMoves = {2, 1, -1, -2, -2, -1, 1, 2};
+        int[] yMoves = {1, 2, 2, 1, -1, -2, -2, -1};
+
+        solution[0][0] = 0;
+
+        if (!solveKnightTourUtil(0, 0, 1, solution, xMoves, yMoves)) {
+            System.out.println("No solution exists");
+            return false;
+        } else {
+            printSolution(solution);
+        }
+        return true;
+    }
+
+    static boolean solveKnightTourUtil(int x, int y, int movei, int[][] solution, int[] xMoves, int[] yMoves) {
+        if (movei == N * N) {
+            return true;
+        }
+
+        for (int k = 0; k < 8; k++) {
+            int nextX = x + xMoves[k];
+            int nextY = y + yMoves[k];
+            if (isSafe(nextX, nextY, solution)) {
+                solution[nextX][nextY] = movei;
+                if (solveKnightTourUtil(nextX, nextY, movei + 1, solution, xMoves, yMoves)) {
+                    return true;
+                } else {
+                    solution[nextX][nextY] = -1;
+                }
+            }
+        }
+        return false;
+    }
+
+    public static void main(String[] args) {
+        solveKnightTour();
+    }
+}
