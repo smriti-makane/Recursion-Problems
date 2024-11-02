@@ -1,0 +1,23 @@
+public class PrimeCheckInRange {
+    public static boolean isPrime(int number, int divisor) {
+        if (number < 2) return false; // Numbers less than 2 are not prime
+        if (divisor == 1) return true; // No divisors found, number is prime
+        if (number % divisor == 0) return false; // Found a divisor, number is not prime
+
+        return isPrime(number, divisor - 1);
+    }
+
+    public static void checkPrimesInRange(int start, int end) {
+        for (int i = start; i <= end; i++) {
+            if (isPrime(i, i / 2)) {
+                System.out.println(i + " is a prime number.");
+            }
+        }
+    }
+
+    public static void main(String[] args) {
+        int start = 10;
+        int end = 20;
+        checkPrimesInRange(start, end);
+    }
+}
