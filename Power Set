@@ -1,0 +1,35 @@
+import java.util.ArrayList;
+import java.util.List;
+
+public class PowerSet {
+    
+    public static List<List<Integer>> powerSet(List<Integer> set) {
+        List<List<Integer>> result = new ArrayList<>();
+        generatePowerSet(set, 0, new ArrayList<>(), result);
+        return result;
+    }
+    
+    private static void generatePowerSet(List<Integer> set, int index, List<Integer> currentSubset, List<List<Integer>> result) {
+        if (index == set.size()) {
+            result.add(new ArrayList<>(currentSubset));
+            return;
+        }
+        
+        generatePowerSet(set, index + 1, currentSubset, result);
+        
+        currentSubset.add(set.get(index));
+        generatePowerSet(set, index + 1, currentSubset, result);
+        
+        currentSubset.remove(currentSubset.size() - 1);
+    }
+    
+    public static void main(String[] args) {
+        List<Integer> set = List.of(1, 2, 3);
+        List<List<Integer>> powerSet = powerSet(set);
+        
+        System.out.println("Power Set:");
+        for (List<Integer> subset : powerSet) {
+            System.out.println(subset);
+        }
+    }
+}
