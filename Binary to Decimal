@@ -1,0 +1,15 @@
+public class BinaryToDecimal {
+
+    public static int binaryToDecimal(int binary) {
+        if (binary == 0) {
+            return 0;
+        }
+        return (binary % 10) + 2 * binaryToDecimal(binary / 10);
+    }
+
+    public static void main(String[] args) {
+        int binary = 01010;  // Example binary number
+        int decimal = binaryToDecimal(binary);
+        System.out.println("Decimal of " + binary + " is: " + decimal);
+    }
+}
