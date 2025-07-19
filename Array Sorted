@@ -1,4 +1,4 @@
-public class Main {
+ public class Main {
     public static boolean isSorted(int[] arr, int index) {
         if (index == arr.length - 1) {
             return true;
