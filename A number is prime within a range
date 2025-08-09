@@ -1,4 +1,4 @@
-public class PrimeCheckInRange {
+public class PrimeCheckInRange { 
     public static boolean isPrime(int number, int divisor) {
         if (number < 2) return false; // Numbers less than 2 are not prime
         if (divisor == 1) return true; // No divisors found, number is prime
