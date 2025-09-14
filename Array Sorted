@@ -1,7 +1,7 @@
  public class Main { 
     public static boolean isSorted(int[] arr, int index) {
         if (index == arr.length - 1) {
-            return true;
+            return true; 
         }
         
         if (arr[index] > arr[index + 1]) {
