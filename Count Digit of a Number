@@ -4,7 +4,7 @@ public class DigitCounter {
         int count = countDigits(number);
         System.out.println("Number of digits: " + count);
     }
-
+ 
     public static int countDigits(int n) {
        
         n = Math.abs(n);
